@@ -17,7 +17,7 @@ module.exports = class JsonVarSub {
         let modifiedJson = jsonObject;
 
         for(let i = 0; i < variables.length; i++ ){
-            console.log(`Variables: ${variables[i]['key']}, ${variables[i]['value']}`)
+            console.log("Variables: ", variables[i]['key'], variables[i]['value'])
             modifiedJson = jUtils.printObjectReplace(modifiedJson, '', variables[i]['key'], variables[i]['value'], delimiter);
         }
 
