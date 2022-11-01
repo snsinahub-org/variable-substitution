@@ -22,10 +22,9 @@ module.exports = class JsonVarSub {
             modifiedJson = jUtils.printObjectReplace(modifiedJson, '', variables[i]['key'], variables[i]['value'], delimiter);
         }
 
-        
-            console.log("write to file: ", writeToFile)
+        if(writeToFile == true) {
             fs.appendFileSync(outputFile, JSON.stringify(modifiedJson));
-        
+        }
         
         return modifiedJson
     }
