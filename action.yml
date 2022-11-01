@@ -13,7 +13,7 @@ inputs:
   fileFormat:
     required: true
     default: 'json'
-  delimeter:
+  delimiter:
     required: true
     default: '/'
   filePath:

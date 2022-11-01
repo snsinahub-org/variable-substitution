@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const _ = require('lodash')
+const JsonUtils = require('./jsonUtils.js')
 
 
 module.exports = class JsonVarSub {
@@ -9,14 +10,21 @@ module.exports = class JsonVarSub {
         
     }
 
-    substitute(filePath, variables, delimeter){
+    substitute(filePath, variables, delimiter){
         let rawData = fs.readFileSync(filePath);
         let jsonObject = JSON.parse(rawData);
+        let jUtils = new JsonUtils()
+        let modifiedJson = jsonObject;
 
-        console.log(jsonObject)
-        console.log(`VARS ${variables}`)
+        for(let i = 0; i < variables.length; i++ ){
 
-        return jsonObject
+            modifiedJson = JUtils.printObjectReplace(modifiedJson, '', variables[i]['key'], variables[i]['value'], delimiter);
+        }
+
+        console.log(modifiedJson)
+        
+
+        return modifiedJson
     }
 
 }

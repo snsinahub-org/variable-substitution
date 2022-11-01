@@ -9,13 +9,13 @@ async function run() {
     const fileFormat = core.getInput('fileFormat')
     const repoFull = core.getInput('repo').split('/');    
     const variables = core.getInput('variables');
-    const delimeter = core.getInput('delimeter');
+    const delimiter = core.getInput('delimiter');
     const filePath = core.getInput('filePath');
     
     let subbed = ''
     if(fileFormat.toLowerCase() == 'json') {
         let jvs = new JsonVarSub();
-        subbed = jvs.substitute(filePath, variables, delimeter);
+        subbed = jvs.substitute(filePath, variables, delimiter);
     }
 
 
