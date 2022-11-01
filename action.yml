@@ -13,12 +13,18 @@ inputs:
   fileFormat:
     required: true
     default: 'json'
-  delimeter:
+  delimiter:
     required: true
     default: '/'
   filePath:
     required: true
     default: ''
+  outputFile:
+    required: false
+    default: '/tmp/sub.json'
+  writeToFile:
+    required: false
+    default: false
 outputs:
   subbed:
     description: subbed
