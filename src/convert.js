@@ -2,7 +2,7 @@ const _ = require('lodash')
 const github = require('@actions/github');
 const core = require('@actions/core');
 const fs = require('fs');
-const JsonVarSub = require('./utils//json/ondex.js')
+const JsonVarSub = require('./utils//json/index.js')
 
 async function run() {
     const myToken = core.getInput('token');
