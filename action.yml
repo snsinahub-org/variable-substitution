@@ -24,7 +24,7 @@ inputs:
     default: '/tmp/sub.json'
   writeToFile:
     required: false
-    default: false
+    default: true
 outputs:
   subbed:
     description: subbed
