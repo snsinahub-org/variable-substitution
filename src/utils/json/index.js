@@ -10,12 +10,12 @@ module.exports = class JsonVarSub {
         
     }
 
-    substitute(filePath, variables, delimiter){
+    substitute(filePath, vars, delimiter){
         let rawData = fs.readFileSync(filePath);
         let jsonObject = JSON.parse(rawData);
         let jUtils = new JsonUtils()
         let modifiedJson = jsonObject;
-        
+        let variables = JSON.parse(JSON.stringify(vars))
 
         for(let i = 0; i < variables.length; i++ ){
             console.log("Variables: ", variables[i], variables[i]['key'], variables[i]['value'])
