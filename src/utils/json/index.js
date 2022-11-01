@@ -10,7 +10,7 @@ module.exports = class JsonVarSub {
         
     }
 
-    substitute(filePath, vars, delimiter){
+    substitute(filePath, vars, delimiter, outputFile, writeToFile){
         let rawData = fs.readFileSync(filePath);
         let jsonObject = JSON.parse(rawData);
         let jUtils = new JsonUtils()
@@ -20,6 +20,10 @@ module.exports = class JsonVarSub {
         for(let i = 0; i < variables.length; i++ ){
             console.log("Variables: ", variables[i], variables[i]['key'], variables[i]['value'])
             modifiedJson = jUtils.printObjectReplace(modifiedJson, '', variables[i]['key'], variables[i]['value'], delimiter);
+        }
+
+        if(writeToFile) {
+            fs.appendFileSync(outputFile, JSON.stringify(subbed));
         }
         
         return modifiedJson

@@ -11,11 +11,13 @@ async function run() {
     const variables = core.getInput('variables');
     const delimiter = core.getInput('delimiter');
     const filePath = core.getInput('filePath');
+    const outputFile = core.getInput('outputFile');
+    const writeToFile = core.getInput('writeToFile');
     
     let subbed = ''
     if(fileFormat.toLowerCase() == 'json') {
         let jvs = new JsonVarSub();
-        subbed = jvs.substitute(filePath, variables, delimiter);
+        subbed = jvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
     }
 
 
