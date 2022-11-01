@@ -15,7 +15,7 @@ module.exports = class JsonVarSub {
         let jsonObject = JSON.parse(rawData);
         let jUtils = new JsonUtils()
         let modifiedJson = jsonObject;
-        let variables = JSON.parse(JSON.stringify(vars))
+        let variables = JSON.parse(vars)
 
         for(let i = 0; i < variables.length; i++ ){
             console.log("Variables: ", variables[i], variables[i]['key'], variables[i]['value'])
