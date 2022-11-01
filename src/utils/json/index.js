@@ -24,7 +24,7 @@ module.exports = class JsonVarSub {
 
         
             console.log("write to file: ", writeToFile)
-            fs.appendFileSync(outputFile, modifiedJson);
+            fs.appendFileSync(outputFile, JSON.stringify(modifiedJson));
         
         
         return modifiedJson
