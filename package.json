@@ -1,0 +1,22 @@
+{
+  "name": "variable-substitution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snsinahub-org/variable-substitution.git"
+  },
+  "author": "snsinahub",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/snsinahub-org/variable-substitution/issues"
+  },
+  "homepage": "https://github.com/snsinahub-org/variable-substitution#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
