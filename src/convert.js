@@ -2,7 +2,8 @@ const _ = require('lodash')
 const github = require('@actions/github');
 const core = require('@actions/core');
 const fs = require('fs');
-const JsonVarSub = require('./utils//json/index.js')
+const JsonVarSub = require('./utils/json/index.js')
+const XmlVarSub = require('./utils/xml/index.js')
 
 async function run() {
     const myToken = core.getInput('token');
@@ -18,6 +19,11 @@ async function run() {
     if(fileFormat.toLowerCase() == 'json') {
         let jvs = new JsonVarSub();
         subbed = jvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
+    }
+
+    if(fileFormat.toLowerCase() == 'xml') {
+        let xvs = new XmlVarSub();
+        subbed = xvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
     }
 
 
