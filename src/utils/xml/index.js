@@ -32,7 +32,6 @@ module.exports = class XmlVarSub {
         for(let i = 0; i < variables.length; i++ ){
             modifiedJson = jUtils.printObjectReplace(jsonObj, '', variables[i]['key'], variables[i]['value'], delimiter);
         }
-        console.log(JSON.stringify(modifiedJson))
         
 
         const xmlOptions = {
