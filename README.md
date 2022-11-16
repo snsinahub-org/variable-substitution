@@ -110,6 +110,46 @@
           python3 -m json.tool /tmp/sub.json
 ```
 ### XML
+To substitute an attribute in XML object you need to prpened `$_` to name of attribute. For instance if you'd like to change `usernmae_value` in following XML snippet and delimiter is `.`, you can pass this `configurations.configuration.items.0.$_value`
+
+```xml
+ <configurations>
+  <configuration>
+    <items>
+      <add key="username" value="username_value"/>
+      <add key="password" value="password_value"/>
+    <items>
+  </configuration>
+</configurations>
+```
+To change username and password, `variables` looks like:
+```
+variables: >
+  [
+      {
+          "key": "configurations.configuration.items.0.$_value",
+          "value": "snsinahub"
+      },
+      {
+          "key": "configurations.configuration.items.1.$_value",
+          "value": "password123"
+      }
+  ]
+```
+And XML will look like
+```xml
+ <configurations>
+  <configuration>
+    <items>
+      <add key="username" value="snsinahub"/>
+      <add key="password" value="password123"/>
+    <items>
+  </configuration>
+</configurations>
+```
+
+### Sample of gitub workflow to change XML
+
 ```YAML
       - name: checkout
         uses: actions/checkout@v3
