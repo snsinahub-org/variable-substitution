@@ -54,7 +54,7 @@ module.exports = class XmlVarSub {
             fs.appendFileSync(outputFile, xmlDataStr);
         }
         
-        return xmlDataStr
+        return JSON.stringify(xmlDataStr)
     }
 
 }
