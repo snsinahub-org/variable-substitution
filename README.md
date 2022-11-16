@@ -70,6 +70,12 @@ An action to substitue variables in `JSON` and `XML` files
       ]
 ```
 
+## Output
+```YAML
+  # Output is a JSON or XML string  
+  subbed: 
+```
+
 ## Examples
 ### JSON
 
