@@ -26,7 +26,7 @@ async function run() {
         let xvs = new XmlVarSub();
         subbed = xvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
         console.log("SUBBED --> ", subbed)
-        fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + JSON.stringify(subbed));
+        fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + subbed);
     }
 
 

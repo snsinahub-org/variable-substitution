@@ -56,7 +56,6 @@ module.exports = class XmlVarSub {
 
         const xmlOptionsOutput = {
             ignoreAttributes : false,
-            format: false,
             processEntities: true,
             suppressUnpairedNode: false,
             alwaysCreateTextNode: true,
