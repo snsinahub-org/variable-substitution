@@ -19,12 +19,14 @@ async function run() {
     if(fileFormat.toLowerCase() == 'json') {
         let jvs = new JsonVarSub();
         subbed = jvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
+        fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + encodeURIComponent(JSON.stringify(subbed)));
     }
 
     if(fileFormat.toLowerCase() == 'xml') {
         let xvs = new XmlVarSub();
         subbed = xvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
         console.log("SUBBED --> ", subbed)
+        fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + subbed);
     }
 
 
@@ -32,7 +34,7 @@ async function run() {
     const octokit = github.getOctokit(myToken)
     
     
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + encodeURIComponent(JSON.stringify(subbed)));
+    
 }
 
 run();
