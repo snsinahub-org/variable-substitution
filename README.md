@@ -69,8 +69,9 @@
       ]
 ```
 
-## Example
+## Examples
 ### JSON
+
 ```YAML
     - name: checkout
         uses: actions/checkout@v3
