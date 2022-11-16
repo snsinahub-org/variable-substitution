@@ -31,7 +31,7 @@ async function run() {
     const octokit = github.getOctokit(myToken)
     
     
-    fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + encodeURIComponent(JSON.stringify(subbed)));
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + encodeURIComponent(subbed));
 }
 
 run();
