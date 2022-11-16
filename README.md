@@ -1,4 +1,5 @@
 # variable-substitution
+An action to substitue variables in `JSON` and `XML` files
 
 ## Action Parameters
 ```YAML
