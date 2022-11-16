@@ -53,8 +53,23 @@ module.exports = class XmlVarSub {
         if(writeToFile) {
             fs.appendFileSync(outputFile, xmlDataStr);
         }
+
+        const xmlOptionsOutput = {
+            ignoreAttributes : false,
+            format: false,
+            processEntities: true,
+            suppressUnpairedNode: false,
+            alwaysCreateTextNode: true,
+            unpairedTags: ["unpaired"],
+            suppressEmptyNode: true,
+            allowBooleanAttributes: true,
+            suppressBooleanAttributes: false
+        };
         
-        return xmlDataStr
+        const xmlBuilderOutput = new XMLBuilder(xmlOptionsOutput);
+        let xmlDataStrOutput = xmlBuilder.build(modifiedJson);
+        
+        return xmlDataStrOutput
     }
 
 }
