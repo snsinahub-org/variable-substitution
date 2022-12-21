@@ -23,7 +23,7 @@ module.exports = class JsonVarSub {
         }
 
         if(writeToFile) {
-            fs.appendFileSync(outputFile, JSON.stringify(modifiedJson));
+            fs.writeFileSync(outputFile, JSON.stringify(modifiedJson));
         }
         
         return modifiedJson
