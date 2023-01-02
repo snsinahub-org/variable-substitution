@@ -3,6 +3,7 @@
 const fs = require('fs');
 const _ = require('lodash')
 const JsonUtils = require('./jsonUtils.js')
+const TextDecoder = require('node:util');
 
 
 module.exports = class JsonVarSub {
@@ -12,7 +13,7 @@ module.exports = class JsonVarSub {
 
     substitute(filePath, vars, delimiter, outputFile, writeToFile){
         let rawData = fs.readFileSync(filePath);
-        let jsonObject = JSON.parse(rawData);
+        let jsonObject = JSON.parse(new TextDecoder('utf-8', { ignoreBOM: false}).decode(rawData));
         let jUtils = new JsonUtils()
         let modifiedJson = jsonObject;
         let variables = JSON.parse(vars)
