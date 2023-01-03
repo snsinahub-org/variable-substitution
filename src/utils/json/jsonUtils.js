@@ -24,10 +24,15 @@ module.exports = class JsonUtils {
             if(typeof jsonObject[key] === "object") {                     
                 self.printObjectReplace(jsonObject[key], self._createKeyName(keyName, key, delimiter), theKey, keyValue, delimiter);
             } else {                                              
-                if(theKey == `${keyName}${delimiter}${key}`) {
-                    jsonObject[key] = keyValue;
+                if(keyName == '') {
+                    if(theKey == `${key}`) {
+                        jsonObject[key] = keyValue;
+                    }
+                } else {      
+                    if(theKey == `${keyName}${delimiter}${key}`) {
+                        jsonObject[key] = keyValue;
+                    }
                 }
-
             }
         }); 
         return jsonObject;       
