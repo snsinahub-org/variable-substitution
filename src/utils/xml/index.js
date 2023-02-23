@@ -49,8 +49,8 @@ module.exports = class XmlVarSub {
         const xmlBuilder = new XMLBuilder(xmlOptions);
         let xmlDataStr = xmlBuilder.build(modifiedJson);
 
-        if(writeToFile) {
-            fs.appendFileSync(outputFile, xmlDataStr);
+        if(writeToFile) {            
+            fs.writeFileSync(outputFile, xmlDataStr);
         }
 
         const xmlOptionsOutput = {
