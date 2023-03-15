@@ -63,12 +63,12 @@ module.exports = class JsonUtils {
             } else {              
                                                 
                 if(keyName == '') {
-                    console.log("KEY -- ELSE MATCHED >>>>>>>>>>", key, element, theKey, keyValue, keyName)
+                    console.log("KEY -- ELSE MATCHED >>>>>>>>>>", key, keyName, matchingKey, matchingValue, updatingKey, value)
                     if(element == `${key}`) {
                         jsonObject[key] = keyValue;
                     }
                 } else {      
-                    console.log("KEY -- ELSE ", key, element, theKey, keyValue, keyName)
+                    console.log("KEY -- ELSE ", key, keyName, matchingKey, matchingValue, updatingKey, value)
                     if(element == `${keyName}${delimiter}${key}`) {
                         jsonObject[key] = keyValue;
                     }
