@@ -62,8 +62,10 @@ module.exports = class JsonUtils {
                 
             } else {              
                 console.log("KEY -- ELSE <<<<<<<<<<<<< ", key, element, keyName, matchingKey, matchingValue, updatingKey, value, keyValue)                                  
-                console.log("KEY -- ELSE ============= ", keyName, `${keyName}${delimiter}${key}`)    
-                if(keyName == '') {
+                   
+                if(keyName == element) { 
+                    console.log("KEY -- ELSE ============= ", element, `${keyName}${delimiter}${key}`) 
+                } else if(keyName == '') {
                     // console.log("KEY -- ELSE MATCHED >>>>>>>>>>", key, keyName, matchingKey, matchingValue, updatingKey, value)
                     if(element == `${key}`) {
                         jsonObject[key] = keyValue;
