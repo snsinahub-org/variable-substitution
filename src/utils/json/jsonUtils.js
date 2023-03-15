@@ -38,27 +38,26 @@ module.exports = class JsonUtils {
         return jsonObject;       
     }
 
-    printObjectReplaceKeyBased(jsonObject, element = '', theKey = '', keyValue = '', delimiter = '/') {
+    printObjectReplaceKeyBased(jsonObject, keyName = '', element = '', theKey = '', keyValue = '', delimiter = '/') {
         let self = this;
         _.forEach(jsonObject, function(value, key){
-            // console.log("KEY -- OBJECT",  key, element)
-            // console.log("KEY -- OBJECT", JSON.stringify(jsonObject[key]), key, element)
-            if(typeof jsonObject[key] === "object") {       
-                console.log("KEY -- OBJECT", key, element, theKey)              
-                self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(element, key, delimiter), theKey, keyValue, delimiter);
-            } else {                 
-                console.log("KEY -- ELSE", key, element, theKey)                             
-                if(element == '') {
-                    if(element == `${key}`) {
+            if(typeof jsonObject[key] === "object") {  
+                console.log("KEY -- OBJECT", key, element, theKey)                   
+                self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, theKey, keyValue, delimiter);
+            } else {              
+                console.log("KEY -- ELSE", key, element, theKey)                                
+                if(keyName == '') {
+                    if(theKey == `${key}`) {
                         jsonObject[key] = keyValue;
                     }
                 } else {      
-                    if(theKey == `${element}${delimiter}${key}`) {
+                    if(theKey == `${keyName}${delimiter}${key}`) {
                         jsonObject[key] = keyValue;
                     }
                 }
             }
         }); 
+        
         return jsonObject;       
     }
 
