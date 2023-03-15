@@ -61,7 +61,8 @@ module.exports = class JsonUtils {
                 }
                 
             } else {              
-                console.log("KEY -- ELSE <<<<<<<<<<<<< ", key, element, keyName, matchingKey, matchingValue, updatingKey, value, keyValue, jsonObject[key])                                  
+                console.log("KEY -- ELSE <<<<<<<<<<<<< ", key, element, keyName, matchingKey, matchingValue, updatingKey, value, keyValue, jsonObject[key]) 
+                console.log("KEY -- ELSE ///////////// ", key, keyName, value, jsonObject[key], jsonObject)                                
                    
                 if(keyName == element && jsonObject[key].hasOwnProperty(matchingKey)) {// && jsonObject[key].hasOwnProperty(updatingKey) && jsonObject[key][matchingKey] == matchingValue) { 
                     console.log("KEY -- ELSE ============= ", element, `${keyName}${delimiter}${key}`) 
