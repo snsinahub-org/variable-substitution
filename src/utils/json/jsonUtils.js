@@ -42,17 +42,17 @@ module.exports = class JsonUtils {
         let self = this;
         _.forEach(jsonObject, function(value, key){
             if(typeof jsonObject[key] === "object") {  
-                console.log("KEY -- OBJECT", key, element, theKey, keyValue)                   
+                console.log("KEY -- OBJECT", key, element, theKey, keyValue, keyName)                   
                 self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, theKey, keyValue, delimiter);
             } else {              
                                                 
                 if(keyName == '') {
-                    console.log("KEY -- ELSE MATCHED >>>>>>>>>>", key, element, theKey, keyValue, keyName)
+                    // console.log("KEY -- ELSE MATCHED >>>>>>>>>>", key, element, theKey, keyValue, keyName)
                     if(element == `${key}`) {
                         jsonObject[key] = keyValue;
                     }
                 } else {      
-                    console.log("KEY -- ELSE ", key, element, theKey, keyValue, keyName)
+                    // console.log("KEY -- ELSE ", key, element, theKey, keyValue, keyName)
                     if(element == `${keyName}${delimiter}${key}`) {
                         jsonObject[key] = keyValue;
                     }
