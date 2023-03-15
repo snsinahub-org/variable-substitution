@@ -38,20 +38,20 @@ module.exports = class JsonUtils {
         return jsonObject;       
     }
 
-    printObjectReplaceKeyBased(jsonObject, keyName = '', element = '', matchingKey = '', updatingKey = '', keyValue = '', delimiter = '/') {
-        console.log("ARGS == ", keyName, element, matchingKey, updatingKey, keyValue, delimiter)
+    printObjectReplaceKeyBased(jsonObject, keyName = '', element = '', matchingKey = '', matchingValue = '', updatingKey = '', keyValue = '', delimiter = '/') {
+        console.log("ARGS == ", keyName, element, matchingKey, matchingValue, updatingKey, keyValue, delimiter)
         let self = this;
         _.forEach(jsonObject, function(value, key){
             
             if(typeof jsonObject[key] === "object") { 
                 if(keyName == element) {
                     for(let k in jsonObject[key]) {
-                        console.log("ELEMENT KEY == ", k, matchingKey, updatingKey, value, jsonObject[key][k])
+                        console.log("ELEMENT KEY == ", k, matchingKey, matchingValue, updatingKey, value, jsonObject[key][k])
                     }
                     console.log("ELEMENT OBJECT == ", key, keyName, JSON.stringify(jsonObject[key]))
                 } 
                 console.log("KEY -- OBJECT", key, element, matchingKey, keyValue, keyName)                   
-                self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, updatingKey, keyValue, delimiter);
+                self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
             } else {              
                                                 
                 if(keyName == '') {
