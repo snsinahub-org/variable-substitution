@@ -41,21 +41,22 @@ module.exports = class JsonUtils {
     printObjectReplaceKeyBased(jsonObject, element = '', theKey = '', keyValue = '', delimiter = '/') {
         let self = this;
         _.forEach(jsonObject, function(value, key){
-            if(typeof jsonObject[key] === "object") {       
-                console.log("KEY -- OBJECT", JSON.stringify(jsonObject[key]))              
-                self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(element, key, delimiter), theKey, keyValue, delimiter);
-            } else {                 
-                console.log("KEY -- ELSE", JSON.stringify(jsonObject[key]), element, theKey)                             
-                if(element == '') {
-                    if(element == `${key}`) {
-                        jsonObject[key] = keyValue;
-                    }
-                } else {      
-                    if(theKey == `${element}${delimiter}${key}`) {
-                        jsonObject[key] = keyValue;
-                    }
-                }
-            }
+            console.log("KEY -- OBJECT", JSON.stringify(jsonObject[key]), key, element)
+            // if(typeof jsonObject[key] === "object") {       
+            //     console.log("KEY -- OBJECT", JSON.stringify(jsonObject[key]))              
+            //     self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(element, key, delimiter), theKey, keyValue, delimiter);
+            // } else {                 
+            //     console.log("KEY -- ELSE", JSON.stringify(jsonObject[key]), element, theKey)                             
+            //     if(element == '') {
+            //         if(element == `${key}`) {
+            //             jsonObject[key] = keyValue;
+            //         }
+            //     } else {      
+            //         if(theKey == `${element}${delimiter}${key}`) {
+            //             jsonObject[key] = keyValue;
+            //         }
+            //     }
+            // }
         }); 
         return jsonObject;       
     }
