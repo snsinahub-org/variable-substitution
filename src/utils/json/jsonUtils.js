@@ -45,7 +45,7 @@ module.exports = class JsonUtils {
             
             if(typeof jsonObject[key] === "object") { 
                 if(keyName == element) {
-                    if(value.hasOwnProperty(matchingKey)) {
+                    if(value.hasOwnProperty(matchingKey) && jsonObject[key][matchingKey] == matchingValue) {
                         console.log("MATCHING KEY AND VALUE ==> ", matchingKey, jsonObject[key][matchingKey], matchingValue)
                     }
                     // for(let k in jsonObject[key]) {
