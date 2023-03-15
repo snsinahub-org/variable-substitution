@@ -28,7 +28,8 @@ module.exports = class XmlVarSub {
         let jUtils = new JsonUtils()
         let modifiedJson = '';
         let variables = JSON.parse(vars)
-        console.log("JSON: ", JSON.stringify(variables, null, 2))
+        console.log("JSON: ", JSON.stringify(jsonObj, null, 2))
+        console.log("VARIABLES: ", JSON.stringify(variables, null, 2))
 
         for(let i = 0; i < variables.length; i++ ){
             modifiedJson = jUtils.printObjectReplace(jsonObj, '', variables[i]['key'], variables[i]['value'], delimiter);
