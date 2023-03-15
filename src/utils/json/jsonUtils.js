@@ -45,8 +45,9 @@ module.exports = class JsonUtils {
             
             if(typeof jsonObject[key] === "object") { 
                 if(keyName == element) {
-                    if(value.hasOwnProperty(matchingKey) && jsonObject[key][matchingKey] == matchingValue) {
+                    if(value.hasOwnProperty(matchingKey) && value.hasOwnProperty(updatingKey) && jsonObject[key][matchingKey] == matchingValue) {
                         console.log("MATCHING KEY AND VALUE ==> ", matchingKey, jsonObject[key][matchingKey], matchingValue)
+                        jsonObject[key][updatingKey] = keyValue
                     }
                     // for(let k in jsonObject[key]) {
                     //     console.log("ELEMENT KEY == ", k, matchingKey, matchingValue, updatingKey, value, jsonObject[key][k])
@@ -54,9 +55,11 @@ module.exports = class JsonUtils {
                     // console.log("ELEMENT KEY == ", k, matchingKey, matchingValue, updatingKey, value, jsonObject[key][k])
                     // 0 configuration.appSettings.add @_key DefaultPassword @_value { '@_key': 'DefaultPassword', '@_value': '' } {"@_key":"DefaultPassword","@_value":""}
                     console.log("ELEMENT OBJECT == ", key, keyName, matchingKey, matchingValue, updatingKey, value, JSON.stringify(jsonObject[key]))
-                } 
-                console.log("KEY -- OBJECT", key, element, matchingKey, keyValue, keyName)                   
-                self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
+                } else {
+                    console.log("KEY -- OBJECT", key, element, matchingKey, keyValue, keyName)                   
+                    self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
+                }
+                
             } else {              
                                                 
                 if(keyName == '') {
