@@ -39,42 +39,28 @@ module.exports = class JsonUtils {
     }
 
     printObjectReplaceKeyBased(jsonObject, keyName = '', element = '', matchingKey = '', matchingValue = '', updatingKey = '', keyValue = '', delimiter = '/') {
-        console.log("ARGS == ", keyName, element, matchingKey, matchingValue, updatingKey, keyValue, delimiter)
         let self = this;
         _.forEach(jsonObject, function(value, key){
             
             if(typeof jsonObject[key] === "object") { 
                 if(keyName == element) {
                     if(value.hasOwnProperty(matchingKey) && value.hasOwnProperty(updatingKey) && jsonObject[key][matchingKey] == matchingValue) {
-                        console.log("MATCHING KEY AND VALUE ==> ", matchingKey, jsonObject[key][matchingKey], matchingValue)
                         jsonObject[key][updatingKey] = keyValue
-                    }
-                    // for(let k in jsonObject[key]) {
-                    //     console.log("ELEMENT KEY == ", k, matchingKey, matchingValue, updatingKey, value, jsonObject[key][k])
-                    // }
-                    // console.log("ELEMENT KEY == ", k, matchingKey, matchingValue, updatingKey, value, jsonObject[key][k])
-                    // 0 configuration.appSettings.add @_key DefaultPassword @_value { '@_key': 'DefaultPassword', '@_value': '' } {"@_key":"DefaultPassword","@_value":""}
-                    console.log("ELEMENT OBJECT == ", key, keyName, matchingKey, matchingValue, updatingKey, value, JSON.stringify(jsonObject[key]))
+                    }                    
                 } else {
                     console.log("KEY -- OBJECT", key, element, matchingKey, keyValue, keyName)                   
                     self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
                 }
                 
             } else {              
-                // console.log("KEY -- ELSE <<<<<<<<<<<<< ", key, element, keyName, matchingKey, matchingValue, updatingKey, value, keyValue, jsonObject[key]) 
-                // console.log("KEY -- ELSE ///////////// ", key, keyName, value, jsonObject[key])  
-                // console.log("KEY -- ELSE /////////////\\\\\\\\\\\\\ ", jsonObject)                              
-                   
+                 
                 if(keyName == element && jsonObject.hasOwnProperty(matchingKey) && jsonObject.hasOwnProperty(updatingKey) && jsonObject[matchingKey] == matchingValue) { 
-                    console.log("KEY -- ELSE ============= ", element, `${keyName}${delimiter}${key}`) 
                     jsonObject[updatingKey] = keyValue;
                 } else if(keyName == '') {
-                    // console.log("KEY -- ELSE MATCHED >>>>>>>>>>", key, keyName, matchingKey, matchingValue, updatingKey, value)
                     if(element == `${key}`) {
                         jsonObject[key] = keyValue;
                     }
                 } else {      
-                    // console.log("KEY -- ELSE ", key, keyName, matchingKey, matchingValue, updatingKey, value)
                     if(element == `${keyName}${delimiter}${key}`) {
                         jsonObject[key] = keyValue;
                     }
