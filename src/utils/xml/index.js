@@ -24,7 +24,7 @@ module.exports = class XmlVarSub {
 
         const parser = new XMLParser(options)
         let xmlObj = parser.parse(rawData)
-        console.log("xmlObj", xmlObj)
+        console.log("xmlObj", JSON.stringify(xmlObj))
         
         let jsonObj = JSON.parse(JSON.stringify(xmlObj))
 
