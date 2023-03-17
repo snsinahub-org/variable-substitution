@@ -110,7 +110,7 @@ An action to substitue variables in `JSON` and `XML` files
           python3 -m json.tool /tmp/sub.json
 ```
 ### XML
-To substitute an attribute in XML object you need to prpened `@_` to the key name . For instance if you'd like to change `usernmae_value` in following XML snippet and delimiter is `.`, you can pass this `configurations.configuration.items.add`
+To substitute an attribute in XML object you need to prpened `@_` to the key name . For instance if you'd like to change `username` and `password` in following XML snippet and delimiter is `.`, you can pass this `configurations.configuration.items.add`
 
 ```xml
  <configurations>
