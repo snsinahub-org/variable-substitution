@@ -51,7 +51,7 @@ module.exports = class JsonUtils {
                         
                     }                    
                 } else {
-                    if(isNaN(key)) {
+                    if(typeof key == 'number') {
                         console.log("KEY ==> ", key, keyName, ' == ', element ,matchingKey, updatingKey, value)
                     }
                     self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
