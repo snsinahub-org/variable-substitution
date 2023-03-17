@@ -52,9 +52,7 @@ module.exports = class JsonUtils {
                     }                    
                 } else {
                     if(typeof key == 'number') {
-                        // console.log("KEY ==> ", key, keyName, ' == ', element ,matchingKey, updatingKey, value)
-                        _.forEach(value, function(v, k) {
-                            console.log("K V ==> ", k, key, keyName, ' == ', element , v)
+                        _.forEach(value, function(v, k) {                            
                             if(!k.startsWith('@_')) {
                                 self.printObjectReplaceKeyBased(value, self._createKeyName(keyName, k, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
                             }
