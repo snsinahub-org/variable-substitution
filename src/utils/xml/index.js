@@ -5,8 +5,6 @@ const _ = require('lodash');
 const JsonUtils = require('../json/jsonUtils.js');
 const { XMLParser, XMLBuilder, XMLValidator} = require("fast-xml-parser");
 
-
-
 module.exports = class XmlVarSub {
     constructor() {
         

@@ -52,20 +52,16 @@ An action to substitue variables in `JSON` and `XML` files
     variables: > 
       [ 
           {
-              "key": "Serilog.WriteTo.2.Args.path",
-              "value": "D:\\tmp\\Logs\\WorkdayPay_.log"
+              "key": "companies.0.company.about",
+              "value": "Siavash Namvar"
           },
           {
-              "key": "Workday.PostPayment.username",
-              "value": "snsina"
+              "key": "companies.0.company.testimonials.1.position",
+              "value": "This is the Position"
           },
           {
-              "key": "Converge.ssl_pins.Oregon Health Authority - Paid",
-              "value": "200"
-          },
-          {
-              "key": "Serilog.MinimumLevel.Default",
-              "value": "Debug"
+              "key": "companies.6.company.galleryImages.1",
+              "value": "snsina.com"
           }
       ]
 ```
@@ -94,20 +90,16 @@ An action to substitue variables in `JSON` and `XML` files
           variables: > 
             [ 
                 {
-                    "key": "Serilog.WriteTo.2.Args.path",
-                    "value": "D:\\tmp\\Logs\\WorkdayPay_.log"
+                    "key": "companies.0.company.about",
+                    "value": "Siavash Namvar"
                 },
                 {
-                    "key": "Workday.PostPayment.username",
-                    "value": "snsina"
+                    "key": "companies.0.company.testimonials.1.position",
+                    "value": "This is the Position"
                 },
                 {
-                    "key": "Converge.ssl_pins.Oregon Health Authority - Paid",
-                    "value": "200"
-                },
-                {
-                    "key": "Serilog.MinimumLevel.Default",
-                    "value": "Debug"
+                    "key": "companies.6.company.galleryImages.1",
+                    "value": "snsina.com"
                 }
             ]
       - name: 'print subbed 1'        
@@ -118,7 +110,7 @@ An action to substitue variables in `JSON` and `XML` files
           python3 -m json.tool /tmp/sub.json
 ```
 ### XML
-To substitute an attribute in XML object you need to prpened `$_` to name of attribute. For instance if you'd like to change `usernmae_value` in following XML snippet and delimiter is `.`, you can pass this `configurations.configuration.items.0.$_value`
+To substitute an attribute in XML object you need to prpened `@_` to the key name . For instance if you'd like to change `usernmae_value` in following XML snippet and delimiter is `.`, you can pass this `configurations.configuration.items.add`
 
 ```xml
  <configurations>
@@ -135,12 +127,18 @@ To change username and password, `variables` looks like:
 variables: >
   [
       {
-          "key": "configurations.configuration.items.0.$_value",
-          "value": "snsinahub"
+        "element": "configurations.configuration.items.add",
+        "matchingKey": "@_key",
+        "matchingValue": "username",
+        "updatingKey": "@_value",
+        "value": "snsinahub"          
       },
       {
-          "key": "configurations.configuration.items.1.$_value",
-          "value": "password123"
+        "element": "configurations.configuration.items.add",
+        "matchingKey": "@_key",
+        "matchingValue": "password",
+        "updatingKey": "@_value",
+        "value": "password123"          
       }
   ]
 ```
@@ -178,12 +176,18 @@ And XML will look like
           variables: > 
             [
                 {
-                    "key": "configuration.configSections.sectionGroup.section.0.@_type",
-                    "value": "siavash"
+                  "element": "configurations.configuration.items.add",
+                  "matchingKey": "@_key",
+                  "matchingValue": "username",
+                  "updatingKey": "@_value",
+                  "value": "snsinahub"          
                 },
                 {
-                    "key": "configuration.appSettings.add.11.@_value",
-                    "value": "namvar"
+                  "element": "configurations.configuration.items.add",
+                  "matchingKey": "@_key",
+                  "matchingValue": "password",
+                  "updatingKey": "@_value",
+                  "value": "password123"          
                 }
             ]
       - name: 'print subbed 1'        
