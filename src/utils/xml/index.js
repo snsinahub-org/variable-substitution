@@ -16,15 +16,13 @@ module.exports = class XmlVarSub {
         let rawData = fs.readFileSync(filePath);
         const options = {
             ignoreAttributes: false,
-            attributeNamePrefix : "",
+            attributeNamePrefix : "@_",
             allowBooleanAttributes: true
         };
 
-        
 
         const parser = new XMLParser(options)
         let xmlObj = parser.parse(rawData)
-        console.log("xmlObj", JSON.stringify(xmlObj))
         
         let jsonObj = JSON.parse(JSON.stringify(xmlObj))
 
