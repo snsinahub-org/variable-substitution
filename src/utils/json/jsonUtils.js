@@ -52,7 +52,10 @@ module.exports = class JsonUtils {
                     }                    
                 } else {
                     if(typeof key == 'number') {
-                        console.log("KEY ==> ", key, keyName, ' == ', element ,matchingKey, updatingKey, value)
+                        // console.log("KEY ==> ", key, keyName, ' == ', element ,matchingKey, updatingKey, value)
+                        _.forEach(value, function(v, k) {
+                            console.log("K V ==> ", k, key, keyName, ' == ', element , v)
+                        })
                     }
                     self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
                 }
