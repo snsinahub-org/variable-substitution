@@ -20,6 +20,8 @@ module.exports = class XmlVarSub {
             allowBooleanAttributes: true
         };
 
+        console.log("RAW DATA", rawData)
+
         const parser = new XMLParser(options)
         let xmlObj = parser.parse(rawData)
         
@@ -28,13 +30,10 @@ module.exports = class XmlVarSub {
         let jUtils = new JsonUtils()
         let modifiedJson = '';
         let variables = JSON.parse(vars)
-        // console.log("JSON: ", JSON.stringify(jsonObj, null, 2))
-        console.log("VARIABLES: ", JSON.stringify(variables, null, 2))
 
         
 
         for(let i = 0; i < variables.length; i++ ){
-            console.log("params: ", variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter)
             modifiedJson = jUtils.printObjectReplaceKeyBased(jsonObj, '', variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter);
         }
         
