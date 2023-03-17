@@ -48,7 +48,6 @@ module.exports = class JsonUtils {
                         jsonObject[key][updatingKey] = keyValue
                     }                    
                 } else {
-                    console.log("KEY -- OBJECT", key, element, matchingKey, keyValue, keyName)                   
                     self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
                 }
                 
