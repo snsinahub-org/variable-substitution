@@ -1,5 +1,6 @@
 'use strict';
 
+const { Console } = require('console');
 const fs = require('fs');
 const _ = require('lodash')
 
@@ -42,12 +43,21 @@ module.exports = class JsonUtils {
         let self = this;
         _.forEach(jsonObject, function(value, key){
             
+            
             if(typeof jsonObject[key] === "object") { 
                 if(keyName == element) {
                     if(value.hasOwnProperty(matchingKey) && value.hasOwnProperty(updatingKey) && jsonObject[key][matchingKey] == matchingValue) {
                         jsonObject[key][updatingKey] = keyValue
+                        
                     }                    
                 } else {
+                    if(typeof key == 'number') {
+                        _.forEach(value, function(v, k) {                            
+                            if(!k.startsWith('@_')) {
+                                self.printObjectReplaceKeyBased(value, self._createKeyName(keyName, k, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
+                            }
+                        })
+                    }
                     self.printObjectReplaceKeyBased(jsonObject[key], self._createKeyName(keyName, key, delimiter), element, matchingKey, matchingValue, updatingKey, keyValue, delimiter);
                 }
                 
