@@ -5,7 +5,7 @@ An action to substitue variables in `JSON` and `XML` files
 ```YAML
 - name: 'Get json subbed'
   id: subbed
-  uses: "snsinahub-org/variable-substitution@v2.0.3"
+  uses: "snsinahub-org/variable-substitution@v3.0.0"
   with:
   
     # List of variables
@@ -80,7 +80,7 @@ An action to substitue variables in `JSON` and `XML` files
         uses: actions/checkout@v3
     - name: 'Get json subbed'
         id: subbed
-        uses: "snsinahub-org/variable-substitution@v2.0.3"
+        uses: "snsinahub-org/variable-substitution@v3.0.0"
         with:
           fileFormat: json
           delimiter: '.'
@@ -166,7 +166,7 @@ And XML will look like
           node-version: 16
       - name: 'Get xml subbed'
         id: subbed
-        uses: "snsinahub-org/variable-substitution@v2.0.3"
+        uses: "snsinahub-org/variable-substitution@v3.0.0"
         with:
           fileFormat: xml
           delimiter: '.'
