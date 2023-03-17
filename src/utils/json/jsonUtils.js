@@ -42,7 +42,7 @@ module.exports = class JsonUtils {
     printObjectReplaceKeyBased(jsonObject, keyName = '', element = '', matchingKey = '', matchingValue = '', updatingKey = '', keyValue = '', delimiter = '/') {
         let self = this;
         _.forEach(jsonObject, function(value, key){
-            Console.log("KEY ==> ", key, value, jsonObject[key])
+            console.log("KEY ==> ", key, value, jsonObject[key])
             if(typeof jsonObject[key] === "object") { 
                 if(keyName == element) {
                     if(value.hasOwnProperty(matchingKey) && value.hasOwnProperty(updatingKey) && jsonObject[key][matchingKey] == matchingValue) {
