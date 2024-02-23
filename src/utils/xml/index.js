@@ -32,7 +32,12 @@ module.exports = class XmlVarSub {
         
 
         for(let i = 0; i < variables.length; i++ ){
-            modifiedJson = jUtils.printObjectReplaceKeyBased(jsonObj, '', variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter);
+            // if(variables[i]['value'] == '' && skipeEmpty) {
+            //     modifiedJson = variables[i];
+            // } else {
+                modifiedJson = jUtils.printObjectReplaceKeyBased(jsonObj, '', variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter);
+            // }
+            console.log("modifiedJson: ", modifiedJson)
         }
         
 
