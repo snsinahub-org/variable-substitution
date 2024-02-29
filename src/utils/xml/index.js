@@ -10,7 +10,7 @@ module.exports = class XmlVarSub {
         
     }
 
-    substitute(filePath, vars, delimiter, outputFile, writeToFile){
+    substitute(filePath, vars, delimiter, outputFile, writeToFile, skipeEmpty){
         let rawData = fs.readFileSync(filePath);
         const options = {
             ignoreAttributes: false,
@@ -28,10 +28,12 @@ module.exports = class XmlVarSub {
         let modifiedJson = '';
         let variables = JSON.parse(vars)
 
+        console.log("VARIABLES: ", variables)
         
 
         for(let i = 0; i < variables.length; i++ ){
-            modifiedJson = jUtils.printObjectReplaceKeyBased(jsonObj, '', variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter);
+            modifiedJson = jUtils.printObjectReplaceKeyBased(jsonObj, '', variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter, skipeEmpty);
+            console.log("modifiedJson: ", modifiedJson)
         }
         
 

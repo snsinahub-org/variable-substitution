@@ -14,6 +14,7 @@ async function run() {
     const filePath = core.getInput('filePath');
     const outputFile = core.getInput('outputFile');
     const writeToFile = core.getInput('writeToFile');
+    const skipeEmpty = core.getInput('writeToFile');
     
     let subbed = ''
     if(fileFormat.toLowerCase() == 'json') {
@@ -24,7 +25,7 @@ async function run() {
 
     if(fileFormat.toLowerCase() == 'xml') {
         let xvs = new XmlVarSub();
-        subbed = xvs.substitute(filePath, variables, delimiter, outputFile, writeToFile);
+        subbed = xvs.substitute(filePath, variables, delimiter, outputFile, writeToFile, skipeEmpty);
         subbed = JSON.stringify(subbed.replace(/(?:\r\n|\r|\n)/g, ''));
         fs.appendFileSync(process.env.GITHUB_OUTPUT, "subbed=" + subbed);
     }

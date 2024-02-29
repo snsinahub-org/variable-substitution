@@ -16,6 +16,9 @@ inputs:
   delimiter:
     required: true
     default: '/'
+  skip-empty:
+    required: true
+    default: true
   filePath:
     required: true
     default: ''
