@@ -47,6 +47,7 @@ An action to substitue variables in `JSON` and `XML` files
     # Skip empty values, set to false to keep empty values to be replaced
     # Required: true
     # Default: true
+    # NOTE: it is supported for XML only, this feature will be added to JSON in future
     skip-empty: true
     
     # Description: list of variables will be original values replacements
@@ -177,6 +178,7 @@ And XML will look like
           delimiter: '.'
           filePath: sample.xml
           writeToFile: true
+          skip-empty: true
           outputFile: '/tmp/sub.xml'
           variables: > 
             [
