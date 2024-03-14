@@ -5,7 +5,7 @@ An action to substitue variables in `JSON` and `XML` files
 ```YAML
 - name: 'Get json subbed'
   id: subbed
-  uses: "snsinahub-org/variable-substitution@v3.0.0"
+  uses: "snsinahub-org/variable-substitution@v3.1.0"
   with:
   
     # List of variables
@@ -43,6 +43,12 @@ An action to substitue variables in `JSON` and `XML` files
     # Required: false
     # Default: '/tmp/sub.json'
     outputFile: '/tmp/sub.json'
+
+    # Skip empty values, set to false to keep empty values to be replaced
+    # Required: true
+    # Default: true
+    # NOTE: it is supported for XML only, this feature will be added to JSON in future
+    skip-empty: true
     
     # Description: list of variables will be original values replacements
     # It is an array of objects, each object has a key and a value
@@ -80,7 +86,7 @@ An action to substitue variables in `JSON` and `XML` files
         uses: actions/checkout@v3
     - name: 'Get json subbed'
         id: subbed
-        uses: "snsinahub-org/variable-substitution@v3.0.0"
+        uses: "snsinahub-org/variable-substitution@v3.1.0"
         with:
           fileFormat: json
           delimiter: '.'
@@ -166,12 +172,13 @@ And XML will look like
           node-version: 16
       - name: 'Get xml subbed'
         id: subbed
-        uses: "snsinahub-org/variable-substitution@v3.0.0"
+        uses: "snsinahub-org/variable-substitution@v3.1.0"
         with:
           fileFormat: xml
           delimiter: '.'
           filePath: sample.xml
           writeToFile: true
+          skip-empty: true
           outputFile: '/tmp/sub.xml'
           variables: > 
             [
