@@ -43,6 +43,11 @@ An action to substitue variables in `JSON` and `XML` files
     # Required: false
     # Default: '/tmp/sub.json'
     outputFile: '/tmp/sub.json'
+
+    # Skip empty values, set to false to keep empty values to be replaced
+    # Required: true
+    # Default: true
+    skip-empty: true
     
     # Description: list of variables will be original values replacements
     # It is an array of objects, each object has a key and a value
