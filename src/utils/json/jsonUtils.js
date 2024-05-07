@@ -41,12 +41,10 @@ module.exports = class JsonUtils {
 
     printObjectReplaceKeyBased(jsonObject, keyName = '', element = '', matchingKey = '', matchingValue = '', updatingKey = '', keyValue = '', delimiter = '/', skipEmpty = true) {
         let self = this;
-        console.log("jsonObject: ", jsonObject)
-        console.log("keyName: ========> ", keyName)
+       
         if(skipEmpty && keyValue == '') {
-            console.log("skipping empty value |||||||||", updatingKey, keyName)
-        } else {
-            console.log("<|> -- non empty value ", updatingKey, keyName)
+            
+        } else {         
             _.forEach(jsonObject, function(value, key){
                 
                 
