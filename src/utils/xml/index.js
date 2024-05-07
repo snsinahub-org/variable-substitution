@@ -28,12 +28,12 @@ module.exports = class XmlVarSub {
         let modifiedJson = '';
         let variables = JSON.parse(vars)
 
-        console.log("VARIABLES: ", variables)
+       
         
 
         for(let i = 0; i < variables.length; i++ ){
             modifiedJson = jUtils.printObjectReplaceKeyBased(jsonObj, '', variables[i]['element'], variables[i]['matchingKey'], variables[i]['matchingValue'], variables[i]['updatingKey'] ,variables[i]['value'], delimiter, skipEmpty);
-            console.log("modifiedJson: ", modifiedJson)
+            
         }
         
 
