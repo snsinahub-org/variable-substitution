@@ -44,8 +44,7 @@ module.exports = class JsonUtils {
        
         if(skipEmpty && keyValue == '') {
             
-        } else {
-            console.log("<|> -- non empty value ", updatingKey, keyName)
+        } else {         
             _.forEach(jsonObject, function(value, key){
                 
                 

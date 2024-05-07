@@ -19,16 +19,7 @@ module.exports = class JsonVarSub {
         let modifiedJson = jsonObject;
         let variables = json5.parse(vars);
 
-        // try {
-        //     variables = json5.parse(vars);
-        // } catch (error) {
-        //     console.error("Parsing error:", error);
-        //     console.log(vars)
-        //     // Handle or ignore the error as needed
-        // }
-
         for(let i = 0; i < variables.length; i++ ){
-            console.log("Variables: ", variables[i], variables[i]['key'], variables[i]['value'])
             modifiedJson = jUtils.printObjectReplace(modifiedJson, '', variables[i]['key'], variables[i]['value'], delimiter);
         }
 
