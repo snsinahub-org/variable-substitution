@@ -169,7 +169,7 @@ And XML will look like
           fetch-depth: 0          
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 24
       - name: 'Get xml subbed'
         id: subbed
         uses: "snsinahub-org/variable-substitution@v4.0.3"

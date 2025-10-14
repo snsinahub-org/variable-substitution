@@ -16,6 +16,9 @@
     "url": "https://github.com/snsinahub-org/variable-substitution/issues"
   },
   "homepage": "https://github.com/snsinahub-org/variable-substitution#readme",
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.0",
